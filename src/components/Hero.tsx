@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 interface HeroProps {
   onOpenAuth: (mode: 'signup') => void;
 }
@@ -38,16 +40,12 @@ export default function Hero({ onOpenAuth }: HeroProps) {
 
         {/* CTAs */}
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a
-            href="https://store.boardgamebarrister.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ padding: '14px 32px', background: '#C41E3A', color: 'white', borderRadius: 8, fontWeight: 700, fontSize: 16, textDecoration: 'none', border: '2px solid #C41E3A', transition: 'all 0.2s' }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#a31830'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = '#C41E3A'; }}
+          <Link
+            to="/shop"
+            style={{ padding: '14px 32px', background: '#C41E3A', color: 'white', borderRadius: 8, fontWeight: 700, fontSize: 16, textDecoration: 'none', border: '2px solid #C41E3A' }}
           >
-            🎲 Shop Online
-          </a>
+            🎲 Shop Games
+          </Link>
           <button
             onClick={() => onOpenAuth('signup')}
             style={{ padding: '14px 32px', background: 'transparent', color: '#FFB800', borderRadius: 8, fontWeight: 700, fontSize: 16, border: '2px solid #FFB800', cursor: 'pointer', transition: 'all 0.2s' }}

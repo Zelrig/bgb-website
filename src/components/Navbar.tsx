@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
   onOpenAuth: (mode: 'signin' | 'signup') => void;
@@ -46,6 +47,12 @@ export default function Navbar({ onOpenAuth }: NavbarProps) {
           >
             Sign In
           </button>
+          <Link
+            to="/shop"
+            style={{ padding: '8px 18px', border: 'none', borderRadius: 6, background: '#FFB800', color: '#1a1a1a', fontWeight: 700, cursor: 'pointer', fontSize: 14, textDecoration: 'none' }}
+          >
+            🛒 Shop
+          </Link>
           <button
             onClick={() => onOpenAuth('signup')}
             style={{ padding: '8px 18px', border: 'none', borderRadius: 6, background: '#C41E3A', color: 'white', fontWeight: 600, cursor: 'pointer', fontSize: 14 }}
