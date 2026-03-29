@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 interface AuthModalProps {
   mode: 'signin' | 'signup';
@@ -7,6 +8,7 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ mode, onClose, onSwitch }: AuthModalProps) {
+  const { signIn } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,7 +39,10 @@ export default function AuthModal({ mode, onClose, onSwitch }: AuthModalProps) {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
     // In production: POST to your auth API here
+    const displayName = mode === 'signup' ? name : email.split('@')[0];
+    signIn(displayName, email);
     setSuccess(true);
+    setTimeout(() => onClose(), 1800);
   }
 
   const inputStyle = (field: string): React.CSSProperties => ({

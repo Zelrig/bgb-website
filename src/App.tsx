@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -33,6 +34,7 @@ export default function App() {
   const [authMode, setAuthMode] = useState<'signin' | 'signup' | null>(null);
 
   return (
+    <AuthProvider>
     <CartProvider>
       <Routes>
         <Route path="/" element={<HomePage onOpenAuth={setAuthMode} />} />
@@ -46,5 +48,6 @@ export default function App() {
         />
       )}
     </CartProvider>
+    </AuthProvider>
   );
 }
