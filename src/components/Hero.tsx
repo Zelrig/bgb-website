@@ -44,7 +44,7 @@ export default function Hero({ onOpenAuth }: HeroProps) {
             to="/shop"
             style={{ padding: '14px 32px', background: '#C41E3A', color: 'white', borderRadius: 8, fontWeight: 700, fontSize: 16, textDecoration: 'none', border: '2px solid #C41E3A' }}
           >
-            🎲 Shop Games
+            🎲 Shop Online
           </Link>
           <button
             onClick={() => onOpenAuth('signup')}
